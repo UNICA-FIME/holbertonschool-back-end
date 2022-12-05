@@ -22,12 +22,12 @@ if __name__ == "__main__":
     count_false = 0
     list_task = []
     for item in list_todos:
-        if (item.get('userId') == int(sys.argv[1])
-                and item.get('completed') is True):
+        if (item.get('userId') == int(sys.argv[1]) and
+                item.get('completed') is True):
             count_true += 1
             list_task.append(item['title'])
-            if (item.get('userId') == int(sys.argv[1])
-                    and item.get('completed') is False):
+            if (item.get('userId') == int(sys.argv[1]) and
+                    item.get('completed') is False):
                 count_false += 1
     NUMBER_OF_DONE_TASKS = count_true
     TOTAL_NUMBER_OF_TASKS = count_true + count_false
