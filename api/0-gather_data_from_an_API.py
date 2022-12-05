@@ -37,4 +37,4 @@ if __name__ == "__main__":
         EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS
         ))
     for item in list_task:
-        print("\t{}{}".format(" ",item))
+        print("\t {}".format(item))
