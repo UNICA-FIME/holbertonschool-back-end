@@ -3,9 +3,11 @@
 Write a Python script that, using this REST API, for a given employee ID,
 returns information about his/her TODO list progress.
 """
-from urllib import request
 import json
 import sys
+from urllib import request
+
+
 if __name__ == "__main__":
     resp_user = request.urlopen('https://jsonplaceholder.typicode.com/users')
     data_user = resp_user.read()
