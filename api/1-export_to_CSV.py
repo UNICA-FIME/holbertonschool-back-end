@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Using what you did in the task #0, extend your Python"""
+"""
+Using a REST API, for a given employee ID,
+returns information about his/her TODO list progress.
+On csv format.
+"""
 import csv
 import json
 from sys import argv
