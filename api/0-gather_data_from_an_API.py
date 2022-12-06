@@ -7,7 +7,8 @@ import json
 from sys import argv
 from urllib.request import urlopen
 
-if __name__ == "__main__":
+
+def import_api():
     EMPLOYEE_NAME = None
     TOTAL_NUMBER_OF_TASKS = 0
     NUMBER_OF_DONE_TASKS = 0
@@ -31,3 +32,7 @@ if __name__ == "__main__":
                                                       TOTAL_NUMBER_OF_TASKS))
     for item in json_todos_task:
         print("\t {}".format(item.get("title")))
+
+
+if __name__ == "__main__":
+    import_api()
