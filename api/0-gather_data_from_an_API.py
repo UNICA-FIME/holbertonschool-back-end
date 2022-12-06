@@ -8,6 +8,9 @@ from sys import argv
 from urllib.request import urlopen
 
 if __name__ == "__main__":
+    EMPLOYEE_NAME = None
+    TOTAL_NUMBER_OF_TASKS = 0
+    NUMBER_OF_DONE_TASKS = 0
     url = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
     req = urlopen(url).read().decode("utf-8")
     json_user = json.loads(req)
