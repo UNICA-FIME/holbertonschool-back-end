@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""scrip that print api"""
 
 import csv
 import json
