@@ -16,7 +16,7 @@ def for_api():
     req = urlopen(url).read().decode("utf-8")
     json_user = json.loads(req)
     USER_ID = int(argv[1])
-    USERNAME = json_user['name']
+    USERNAME = json_user['username']
 
     url_todos = "https://jsonplaceholder.typicode.com\
 /users/{}/todos/".format(int(argv[1]))
@@ -30,7 +30,6 @@ def for_api():
             TASK_TITLE = item['title']
             data = [USER_ID, USERNAME, TASK_COMPLETED_STATUS, TASK_TITLE]
             writer.writerow(data)
-
 
 if __name__ == "__main__":
     for_api()
