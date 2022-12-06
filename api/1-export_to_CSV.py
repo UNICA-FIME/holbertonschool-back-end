@@ -1,31 +1,36 @@
 #!/usr/bin/python3
-''' Export data in the CSV format '''
+"""
+Using a REST API, for a given employee ID,
+returns information about his/her TODO list progress.
+On csv format.
+"""
 import csv
-import requests
+import json
 from sys import argv
+from urllib.request import urlopen
 
 
-def get_api():
-    ''' Gather data from an API '''
-    url = 'https://jsonplaceholder.typicode.com/'
-    uid = argv[1]
+def for_api():
+    ''' obtener informacion de api '''
+    url = "https://jsonplaceholder.typicode.com/users/{}".format(int(argv[1]))
+    req = urlopen(url).read().decode("utf-8")
+    json_user = json.loads(req)
+    USER_ID = int(argv[1])
+    USERNAME = json_user['name']
 
-    # get a specific user from users in jsonplaceholder
-    usr = requests.get(url + 'users/{}'.format(uid)).json()
-    # make a query string to get tasks based on user id
-    todo = requests.get(url + 'todos', params={'userId': uid}).json()
-
-    with open('{}.csv'.format(uid), 'w') as file:
+    url_todos = "https://jsonplaceholder.typicode.com\
+/users/{}/todos/".format(int(argv[1]))
+    req_todos = urlopen(url_todos).read().decode("utf-8")
+    json_todos = json.loads(req_todos)
+    
+    with open('{}.csv'.format(int(argv[1])), 'w', encoding='UTF8') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-        for employee in todo:
-            user_id = uid
-            username = usr.get('username')
-            task_comp = employee.get('completed')
-            task_title = employee.get('title')
-
-            emp_record = [user_id, username, task_comp, task_title]
-            writer.writerow(emp_record)
+        for item in json_todos:
+            TASK_COMPLETED_STATUS = item['completed']
+            TASK_TITLE = item['title']
+            data = [USER_ID, USERNAME, TASK_COMPLETED_STATUS, TASK_TITLE]
+            writer.writerow(data)
 
 
-if __name__ == '__main__':
-    get_api()
+if __name__ == "__main__":
+    for_api()
