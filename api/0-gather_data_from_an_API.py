@@ -3,9 +3,9 @@
 script that, using this REST API, for a given employee ID,
 returns information about his/her TODO list progress
 """
+from sys import argv
 import json
 from urllib.request import urlopen
-from sys import argv
 
 
 def import_api():
