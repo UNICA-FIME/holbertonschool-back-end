@@ -22,7 +22,7 @@ def for_api():
 /users/{}/todos/".format(int(argv[1]))
     req_todos = urlopen(url_todos).read().decode("utf-8")
     json_todos = json.loads(req_todos)
-    
+
     with open('{}.csv'.format(int(argv[1])), 'w', encoding='UTF8') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for item in json_todos:
@@ -30,6 +30,7 @@ def for_api():
             TASK_TITLE = item['title']
             data = [USER_ID, USERNAME, TASK_COMPLETED_STATUS, TASK_TITLE]
             writer.writerow(data)
+
 
 if __name__ == "__main__":
     for_api()
