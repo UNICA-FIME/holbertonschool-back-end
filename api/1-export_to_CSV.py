@@ -22,6 +22,7 @@ def for_api():
 /users/{}/todos/".format(int(argv[1]))
     req_todos = urlopen(url_todos).read().decode("utf-8")
     json_todos = json.loads(req_todos)
+    
     with open(f'{argv[1]}.csv', 'w', encoding='UTF8') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for item in json_todos:
