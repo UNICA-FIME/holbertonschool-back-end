@@ -27,4 +27,4 @@ if __name__ == "__main__":
             status = task.get("completed")
             title = task.get("title")
             data = [user_id, username, status, title]
-            writer.writerow(data
+            writer.writerow(data)
