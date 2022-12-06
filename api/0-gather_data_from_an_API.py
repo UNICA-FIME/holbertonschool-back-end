@@ -5,7 +5,7 @@ returns information about his/her TODO list progress
 """
 
 
-from urllib.request import urlopeni
+from urllib.request import urlopen
 from sys import argv
 import json
 
