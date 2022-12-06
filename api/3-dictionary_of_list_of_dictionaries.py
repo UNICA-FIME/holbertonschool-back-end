@@ -31,7 +31,7 @@ def for_api():
                 dict_item = {
                         "username": item_1["username"],
                         "task": item['title'],
-                        "completed": item["completed"]
+                        "completed": item["completed"],
                         }
                 formato.append(dict_item)
             dict_json[USER_ID] = formato
