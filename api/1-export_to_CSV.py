@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """scrip that print api"""
-
+"""
 import csv
 import json
 from sys import argv
@@ -28,6 +28,6 @@ def for_api():
             data = [USER_ID, USERNAME, TASK_COMPLETED_STATUS, TASK_TITLE]
             writer.writerow(data)
 
-
+"""
 if __name__ == "__main__":
     for_api()
