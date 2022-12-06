@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""scrip that print api"""
 """
+Check student .CSV output of user information
+"""
+
 import csv
 import json
 from sys import argv
@@ -8,7 +10,8 @@ from urllib.request import urlopen
 
 
 def for_api():
-    ''' obtener informacion de api '''
+    """ obtener informacion de api """
+
     url = "https://jsonplaceholder.typicode.com/users/{}".format(int(argv[1]))
     req = urlopen(url).read().decode("utf-8")
     json_user = json.loads(req)
@@ -28,6 +31,6 @@ def for_api():
             data = [USER_ID, USERNAME, TASK_COMPLETED_STATUS, TASK_TITLE]
             writer.writerow(data)
 
-"""
+
 if __name__ == "__main__":
     for_api()
