@@ -14,7 +14,7 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
     req = urlopen(url).read().decode("utf-8")
     json_user = json.loads(req)
-    EMPLOYEE_NAME = json_user.['name']
+    EMPLOYEE_NAME = json_user['name']
     url_todos = "https://jsonplaceholder.typicode.com\
 /users/{}/todos".format(argv[1])
     req_todos = urlopen(url_todos).read().decode("utf-8")
