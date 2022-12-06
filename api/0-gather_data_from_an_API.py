@@ -7,26 +7,24 @@ import json
 from sys import argv
 from urllib.request import urlopen
 
-
-url = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
-req = urlopen(url).read().decode("utf-8")
-json_user = json.loads(req)
-EMPLOYEE_NAME = json_user.get('name')
-
-url_todos = "https://jsonplaceholder.typicode.com\
+if __name__ == "__main__":
+    url = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
+    req = urlopen(url).read().decode("utf-8")
+    json_user = json.loads(req)
+    EMPLOYEE_NAME = json_user.get('name')
+    url_todos = "https://jsonplaceholder.typicode.com\
 /users/{}/todos".format(argv[1])
-req_todos = urlopen(url_todos).read().decode("utf-8")
-json_todos = json.loads(req_todos)
-TOTAL_NUMBER_OF_TASKS = len(json_todos)
-
-url_todos_task = "https://jsonplaceholder.typicode.com\
+    req_todos = urlopen(url_todos).read().decode("utf-8")
+    json_todos = json.loads(req_todos)
+    TOTAL_NUMBER_OF_TASKS = len(json_todos)
+    url_todos_task = "https://jsonplaceholder.typicode.com\
 /users/{}/todos/?completed=true".format(argv[1])
-req_todos_task = urlopen(url_todos_task).read().decode("utf-8")
-json_todos_task = json.loads(req_todos_task)
-NUMBER_OF_DONE_TASKS = len(json_todos_task)
-print("Employee {} is done with tasks({}/{}):".format(
+    req_todos_task = urlopen(url_todos_task).read().decode("utf-8")
+    json_todos_task = json.loads(req_todos_task)
+    NUMBER_OF_DONE_TASKS = len(json_todos_task)
+    print("Employee {} is done with tasks({}/{}):".format(
                                                       EMPLOYEE_NAME,
                                                       NUMBER_OF_DONE_TASKS,
                                                       TOTAL_NUMBER_OF_TASKS))
-for item in json_todos_task:
-    print("\t {}".format(item.get("title")))
+    for item in json_todos_task:
+        print("\t {}".format(item.get("title")))
