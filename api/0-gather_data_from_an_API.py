@@ -8,7 +8,7 @@ from sys import argv
 from urllib.request import urlopen
 
 
-def import_api():
+def for_api():
     EMPLOYEE_NAME = None
     TOTAL_NUMBER_OF_TASKS = 0
     NUMBER_OF_DONE_TASKS = 0
@@ -35,4 +35,4 @@ def import_api():
 
 
 if __name__ == "__main__":
-    import_api()
+    for_api()
